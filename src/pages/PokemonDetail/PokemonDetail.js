@@ -27,7 +27,6 @@ export function PokemonDetail() {
         var captureSuccess = Math.floor(Math.random() * 2)
         console.log(captureSuccess)
         if (captureSuccess == 1){
-            // setShowModal={setShowModal}
             handleModal()
         } else {
             alert(pokemon.name + " fled! You can try to capture again")
@@ -36,6 +35,9 @@ export function PokemonDetail() {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        if(nickname === "") {
+            alert("Please insert a nickname")
+        } else {
         var tempPokemon = JSON.parse(JSON.stringify(pokemon))
         tempPokemon.nickname = nickname
         var listPokemon = myPokemons
@@ -44,12 +46,13 @@ export function PokemonDetail() {
         console.log(myPokemons)
         handleModal()
         history.push('/')
+        }
     }
   
     return (
         <div>
             <PokemonDetailComponent  pokemon={pokemon}  clickCapture={clickCapture} />
-            <Modal showModal={showModal} nickname={nickname} setNickname={setNickname} setShowModal={setShowModal} handleSubmit={handleSubmit}/>
+            <Modal showModal={showModal} nickname={nickname} name={pokemon.name} setNickname={setNickname} setShowModal={setShowModal} handleSubmit={handleSubmit}/>
         </div>
     )
 }

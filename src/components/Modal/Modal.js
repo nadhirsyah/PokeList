@@ -63,7 +63,7 @@ const Input = styled.input`
   border-radius: 4px;
   box-sizing: border-box;
   `
-function Modal({ showModal, setShowModal, handleSubmit, nickname, setNickname}) {
+function Modal({ showModal, setShowModal, handleSubmit, nickname, setNickname, name}) {
 
 
   return (
@@ -72,8 +72,8 @@ function Modal({ showModal, setShowModal, handleSubmit, nickname, setNickname}) 
     <Background>
         <ModalWrapper showModal={showModal}>
             <ModalContent>
-            <h1>Gotcha! Pokemon was caught!</h1>
-            <h2>Give Pokemon Nickname</h2>
+            <h1>Gotcha! {name} was caught!</h1>
+            <h2>Give {name} Nickname</h2>
             <form onSubmit={handleSubmit}>
                 <Input 
                   type="text" 
